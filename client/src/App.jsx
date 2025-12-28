@@ -23,10 +23,11 @@ function App() {
 
     setStatus("Uploading & processing…");
 
-    const res = await fetch("http://localhost:5000/api/upload", {
+    const res = await fetch("https://research-assistant-wheu.onrender.com/api/upload", {
       method: "POST",
-      body: formData,
+      body: formData
     });
+
 
     const data = await res.json();
     setStatus(data.message || "Uploaded");
@@ -35,11 +36,12 @@ function App() {
   async function ask() {
     setAnswer("Thinking…");
 
-    const res = await fetch("http://localhost:5000/api/chat", {
+    const res = await fetch("https://research-assistant-wheu.onrender.com/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question, mode }),
     });
+
 
     const data = await res.json();
 
