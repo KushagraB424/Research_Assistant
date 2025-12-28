@@ -50,24 +50,13 @@ https://research-assistant-wheu.onrender.com
 
 ---
 
-## System Architecture
-
-PDF Upload ➜ Extract Text ➜ Chunk ➜ Generate Embeddings ➜ Store in MongoDB
-⬇
-Ask Question ➜ Embed Query ➜ Cosine Similarity Search
-⬇
-Send Context to Gemini ➜ AI Answer Returned
-
-
----
-
 ## Run Locally
 
 ### Clone repo
 
 git clone https://github.com/KushagraB424/Research_Assistant.git
 
-## Backend
+### Backend
 cd server
 npm install
 npm start
@@ -75,7 +64,7 @@ npm start
 Runs at:
 http://localhost:5000
 
-## Frontend
+### Frontend
 
 cd client
 npm install
@@ -84,6 +73,6 @@ npm run dev
 Runs at:
 http://localhost:5173
 
-###  Credits
+##  Credits
 
 Built by Kushagra Gupta
