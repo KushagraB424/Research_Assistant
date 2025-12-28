@@ -74,6 +74,7 @@ npm run dev
 Runs at:
 http://localhost:5173
 
-###  Credits
+---
+##  Credits
 
 Built by Kushagra Gupta
