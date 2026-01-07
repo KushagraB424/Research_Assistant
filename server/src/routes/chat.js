@@ -29,17 +29,17 @@ function cosineSimilarity(a, b) {
 
 router.post("/", async (req, res) => {
   try {
-    console.log("👉 Chat request received:", req.body);
+    console.log("Chat request received:", req.body);
 
     const { question, mode = "expert" } = req.body;
 
-    console.log("👉 Embedding question...");
+    console.log("Embedding question...");
     const qEmbed = await embedText(question);
 
-    console.log("👉 Loading documents...");
+    console.log("Loading documents...");
     const docs = await Document.find();
 
-    console.log("👉 Computing similarities...");
+    console.log("Computing similarities...");
 
     let scored = [];
 
@@ -74,8 +74,17 @@ router.post("/", async (req, res) => {
     const style = modeInstructions[mode] || modeInstructions.expert;
 
     const prompt = `
-You are a research assistant. Answer the user's question based ONLY on the provided sources.
-Cite sources like: (Source 1), (Source 2)
+You are a research assistant. Answer the user's question using ONLY the information in the SOURCES.
+
+Write the answer in clear text. Bullet points are allowed.
+Do NOT use bold text, headings, hashtags, or any markdown styling.
+
+When citing, only include page numbers in parentheses like this:
+(p. 3) or (Page 3)
+
+Do not invent page numbers. If a page number is not provided in the source, do not cite it.
+
+If the answer cannot be found in the sources, say that the information is not available in the provided material.
 
 ${style}
 
@@ -85,6 +94,7 @@ ${question}
 SOURCES:
 ${context}
 `;
+
 
     const result = await model.generateContent(prompt);
 
