@@ -79,10 +79,8 @@ You are a research assistant. Answer the user's question using ONLY the informat
 Write the answer in clear text. Bullet points are allowed.
 Do NOT use bold text, headings, hashtags, or any markdown styling.
 
-When citing, only include page numbers in parentheses like this:
-(p. 3) or (Page 3)
-
-Do not invent page numbers. If a page number is not provided in the source, do not cite it.
+Do NOT cite or reference the sources in any way. 
+Do NOT mention page numbers, URLs, file names, or source labels.
 
 If the answer cannot be found in the sources, say that the information is not available in the provided material.
 
@@ -94,6 +92,7 @@ ${question}
 SOURCES:
 ${context}
 `;
+
 
 
     const result = await model.generateContent(prompt);
