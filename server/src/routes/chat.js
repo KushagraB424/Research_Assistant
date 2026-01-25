@@ -11,7 +11,7 @@ console.log("SDK version:", pkg.version);
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const model = genAI.getGenerativeModel({
-  model: "models/gemini-flash-latest"
+  model: "models/gemini-3-flash-preview"
 });
 
 
